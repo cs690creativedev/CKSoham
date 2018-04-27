@@ -1,0 +1,81 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<ck_project.lead_source_report>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    @*<meta name="viewport" content="initial-scale=1.0">*@
+    <title>Sale Contract Management System</title>
+    <link href="http://leadmanagealpha.apphb.com/Content/bootstrap.sandstone.css" rel="stylesheet" type="text/css" />
+    <link href="http://leadmanagealpha.apphb.com/Content/Print.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="pic2" align="center"><img src="http://leadmanagealpha.apphb.com/Content/Images/proposal_pic2.png" /></div>
+    <div class="header"><h2>COMPANY LEAD SOURCE ANALYSIS</h2></div>
+
+    <div> 
+         <table class="table table-striped">
+        <thead class="mdb-color darken-3">
+            <tr>
+                <th>
+                    Source Name
+                </th>
+                <th>
+                    Huntington
+                </th>
+                <th>
+                    Charleston
+                </th>
+                <th>
+                    Lewisburg
+                </th>
+                <th>
+                    Total
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="6"> Sorry, There are no Records
+                <td>
+            </tr>
+        }
+        else
+        {
+
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.source_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Huntington)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Charleston)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lewisburg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.total)
+                    </td>
+                    
+                </tr>
+            }
+        }
+    </table>
+    </div>
+</body>
+</html>
